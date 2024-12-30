@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 
 const Layout: React.FC = () => {
+  const [open, setOpen] = useState<boolean>(false);
+
   return (
     <div className="app">
-    <Sidebar/>
-    <div className="outlet">
-      <Outlet/>
-    </div>      
-  </div>
+      <section className="flex gap-6">
+        <Sidebar open={open} setOpen={setOpen} />
+        <div className="outlet">
+          <Outlet />
+        </div>
+      </section>
+    </div>
   );
 };
 
